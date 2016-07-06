@@ -1,0 +1,10 @@
+body { 
+	width: 100%;
+	text-align: center; 
+}
+
+#construction{
+	background-image: url("../images/under_construction.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+}

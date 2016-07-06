@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Emun</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"> -->
+	<link rel="stylesheet" type="text/css" media="screen" href="./css/style.css">
+</head>
+<body class="home">
+	<div id="page">
+
+		<header>
+			<div class="tavim">
+				<a class="logo" title="Emun" href="index.html"><span>Emun</span></a>
+				<a class="sviva" title="Sviva" href="#"><span>Sviva</span></a>
+				<a class="hogen" title="Hogen" href="#"><span>Hogen</span></a>
+				<a class="yeshuv" title="Yeshuv" href="#"><span>Yeshuv</span></a>
+			</div>
+			<div class="nav-options">
+				<a class="lang" href="#"><span>sdf</span></a>
+				<a class="mitchamBus" href="#"></a>
+				<a class="mitchamCon" href="#"></a>
+			</div>
+		</header>
+
+		<nav class="top-nav">
+			<ul>
+				<li><a href="#">מכתבי תודה</a></li>
+				<li><a href="#">דרושים</a></li>
+				<li><a href="#">פרטיות</a></li>
+				<li><a href="#">צור קשר</a></li>
+				<li><a href="#">בקרה</a></li>
+				<li><a href="#">שינוי מדיניות</a></li>
+				<li><a href="#">חשוב לדעת</a></li>
+				<li><a href="#">מי אנחנו</a></li>
+			</ul>
+		</nav>
+
+		<section class="sidePanels">
+
+			<div class="tik">
+				<h4 class="sideHeader">תיק אישי</h4>
+				<form class="simple-form">
+					<h4>שלום אורח,</h4>
+		           	 <div class="form-group">
+		                <input class="form-control" ng-model="business.name" placeholder="שם משתמש" required>
+		           
+		                <input class="form-control lastOne" ng-model="business.sector" placeholder="סיסמא" required>
+		            </div>
+		            <input type="submit" value="התחבר" ng-click="search(business)" class="btn btn-default">
+		            <a href="#">שכחתי סיסמא</a>
+		            <a id="modalBtn" href="#">משתמש חדש</a>
+        		</form>
+        		<form>
+        			<input class="form-control mainSearch" ng-model="business.name" placeholder="" required>
+        			<input type="submit" value="חפש" ng-click="search(business)" class="btn btn-default">
+        		</form>
+				
+				<div id="myModal" class="modal">
+
+				  <div class="modal-content">
+				    <span class="close">×</span>
+				    <a href="userReg.html" class="newUsers" role="button">צרכן חדש</a>
+				    <a href="businessReg.html" class="newUsers" role="button">עסק חדש</a>
+				  </div>
+
+				</div>
+
+				<ul>
+					<li><span>/</span><a href="complaintReg.html">  הגש תלונה</a></li>
+					<li><span>/</span><a href="#">  מעקב אחר תלונה</a></li>
+					<li><span>/</span><a href="#">  יישוב מחלוקת</a></li>
+					<li><span>/</span><a href="#">  תרום לאמון הציבור</a></li>
+					<li><span>/</span><a href="#">  הרשמה לניוזלטר</a></li>
+					<li><span>/</span><a href="#">  הורד אפליקציה</a></li>
+				</ul>
+
+				<div class="facebook">
+					<a href="#"><img src="./images/appStore.png"></a>
+					<a href="#"><img src="./images/like.png"></a>
+					<a href="#"><img src="./images/facebook.png"></a>
+				</div>
+			</div>
+
+
+
+			<div class="search">
+				<h4 class="sideHeader">חיפוש עסקים</h4>
+				<ul>
+					<li><span>/</span><a href="#">  בדוק בית עסק</a></li>
+					<li><span>/</span><a href="#">  דוח דירוג ענפי אחרון</a></li>
+					<li><a href="#"><img src="./images/chart.png"></a></li>
+				</ul>
+			</div>
+
+
+
+			<div class="committed">
+				<h4 class="sideHeader">עסקים שהתחייבו להגינות</h4>
+				<ul>
+					<li><span>/</span><a href="#">  התחייב להגינות</a></li>
+					<li><a href="#"><img src="./images/purpleMm.png"></a></li>
+
+				</ul>
+			</div>
+
+
+		</section>
+		
+		<section class="main-up"></section>
+
+		<section class="main-center">
+
+			<div class="mainLeft">
+				<ul>
+					<li><span>/</span><a href="#">  מידע על התחייבות</a></li>
+					<li><span>/</span><a href="#">  בדוק את עצמך</a></li>
+					<li><span>/</span><a href="#">  כניסה לתיק אישי עסק</a></li>
+					<li><span>/</span><a href="#">  הרשם לעיתון עסקים</a></li>
+				</ul>
+			</div>
+
+			<div class="mainCenter">
+				<ul>
+					<li><span>/</span><a href="#">  פנה ליישוב מחלוקת</a></li>
+					<li><span>/</span><a href="#">  מחלוקת אחרונה שיושבה</a></li>
+					<li><span>/</span><a href="#">  רישום לבוררות</a></li>
+					<li><span>/</span><a href="#">  רישום לדיון אונליין</a></li>
+					<li><span>/</span><a href="#">  רישום לגישור</a></li>
+					<li><span>/</span><a href="#">  רישום להצעה לפיתרון</a></li>
+				</ul>
+			</div>
+
+			<div class="mainRight">
+				<ul>
+					<li><span>/</span><a href="complaintReg.html">  הגש תלונה</a></li>
+					<li><span>/</span><a href="search-business.html">  חפש עסק מחוייב</a></li>
+					<li><span>/</span><a href="#">  מדריכי קנייה וטיפים</a></li>
+					<li><span>/</span><a href="#">  המלץ על עסק הוגן</a></li>
+				</ul>
+			</div>
+
+		</section>
+
+		<section class="main-bottom"></section>
+
+		<nav class="bottom-nav">
+			<ul>
+				<li><a href="#">צור קשר</a></li>
+				<li><a href="#">דרושים</a></li>
+				<li><a href="#">קוד אתי</a></li>
+				<li><a href="#">פרטיות</a></li>
+				<li><a href="#">תנאי שימוש</a></li>
+				<li><a href="#">מפת האתר</a></li>
+				<li><a href="#">לדף הבית</a></li>
+			</ul>
+		</nav>
+
+		<footer>
+			<a href=""><img src="images/companyA.png"></a>
+			<a href=""><img src="images/companyB.png"></a>
+			<a href=""><img src="images/companyC.jpg"></a>
+			<a href=""><img src="images/companyD.jpg"></a>
+			<a href=""><img src="images/companyE.jpg"></a>
+		</footer>
+
+	</div>
+	<script src="js/formController.js"></script>
+</body>
+</html>

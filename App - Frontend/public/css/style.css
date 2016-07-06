@@ -1,0 +1,560 @@
+* { padding: 0; margin: 0; }
+
+body { font-family: Arial; font-size: 16px; font-weight: 500; }
+
+#page { min-width: 1000px; max-width: 1200px; margin: 0 auto; position: relative; }
+
+/************************************** Header **************************************/
+
+header { border-top-style: solid; border-width: 9px; border-color: red; position: relative; height: 150px; }
+
+header a { margin-top: 20px; }
+
+header .tavim { position: relative; left: 5%; }
+
+header a.logo { 
+	position: absolute;
+	display: block; width: 110px; height:110px; 
+	background: url(../images/logo.png) no-repeat 0 0;
+}
+
+header a.sviva {  
+	position: absolute;
+	display: block; width: 85px; height:80px; 
+	background: url(../images/tav-sviva.png) no-repeat 0 0;
+	left: 130px;
+}
+header a.hogen { 
+	position: absolute;
+	display: block; width: 85px; height:80px; 
+	background: url(../images/tav-hogen.png) no-repeat 0 0;
+	left: 240px;
+}
+header a.yeshuv { 
+	position: absolute;
+	display: block; width: 66px; height:65px; 
+	background: url(../images/tav-yeshuv.png) no-repeat 0 0;
+	left: 350px;
+}
+
+header .nav-options { position: absolute; left: 60%; }
+
+header a.lang {
+	position: absolute;
+	display: block; width: 190px; height:42px; 
+	background: url(../images/languages.png) no-repeat 0 0;
+
+}
+
+header a.mitchamBus {
+	position: absolute;
+	display: block; width: 88px; height: 30px; 
+	background: url(../images/asakim.png) no-repeat;
+	top: 48px; left: 7px;
+
+}
+
+header a.mitchamCon {
+	position: absolute;
+	display: block; width: 88px; height: 30px; 
+	background: url(../images/tzarchanim.png) no-repeat;
+	top: 48px; left: 100px;
+}
+
+header a span { display: none; }
+
+/************************************** Nav **************************************/
+
+nav.top-nav { background-color: red; width: 100%; }
+
+nav.top-nav::after { content:''; display: block; clear: both; }
+
+nav.top-nav ul { list-style: none; margin: 0; padding-top: 5px; padding-bottom: 22px; margin-left: 50px; }
+
+nav.top-nav ul li { margin-right: 8px; }
+
+nav.top-nav ul li a { 
+	color: #fff;
+	text-decoration: none;
+	position: relative;
+}
+
+
+nav.top-nav > ul > li { float: left; text-align: center; width: 9%; display: block; }
+
+
+/************************************** Section - sidePanels **************************************/
+
+
+section.sidePanels { position: absolute; left: 80%; top: 40px; direction: rtl; }
+
+section.sidePanels > div { 
+	position: relative;
+	background-color: #fff;
+	box-shadow: 1px 1px 20px 2px #C8C8C8;
+ }
+
+section.sidePanels a { margin-right: 10px; }
+
+section.sidePanels .sideHeader { background-color: #e6e6e6; color: red; padding-right: 10px; }
+ 
+section.sidePanels .tik { 
+	width: 210px; height: 369px; 
+	top: 0px;
+}
+
+section.sidePanels .tik .simple-form h4 { color: #207b6c; padding-right: 10px; margin-top: 15px; }
+
+.form-control { width: 140px; margin-right: 10px; margin-top: 8px; border-style: none; background-color: #e6e6e6;}
+section.sidePanels .tik .form-control.lastOne { float: right; }
+
+section.sidePanels .tik .btn { border-style: none; background-color: #fff; color: red; margin-top: 8px; margin-right: 8px;}
+
+section.sidePanels .tik a { color: #162b4a; font-size: 12px; }
+
+section.sidePanels .tik .form-control.mainSearch { 
+	background-image: url(../images/searchIcon1.png); 
+	background-repeat: no-repeat;
+	background-position: 125px 3px;
+	text-indent: 20px;
+}
+
+section.sidePanels ul { list-style: none; }
+
+section.sidePanels ul span { color: red; font-size: 18px; }
+
+section.sidePanels ul li { padding-right: 10px; margin-top: 10px; color: #172c4b; font-size: 13px; font-weight: bold; }
+
+section.sidePanels ul li:hover { background-color: #e6e6e6; }
+
+section.sidePanels ul a { text-decoration: none; color: #162b4a;}
+
+section.sidePanels .facebook { padding-right: 15px; margin-top: 7px; }
+
+
+section.sidePanels .search { 
+	width: 210px; height: 188px; 
+	top: 12px;
+}
+
+section.sidePanels .search ul li:last-child:hover { background-color: #fff; }
+
+section.sidePanels .committed { 
+	width: 210px; height: 229px; 
+	top: 25px;
+}
+
+
+
+section.sidePanels .committed ul li:last-child:hover { background-color: #fff; }
+
+
+/************************************** Section - main-up **************************************/
+
+
+section.main-up { 
+	position: relative;
+	margin-top: 20px;
+	width: 860px; height: 300px;
+	left: 7%;
+	background: url(../images/main-up.png) no-repeat;
+	background-size: 850px 320px;
+}
+
+.businessReg section.main-up { 
+	height: 180px;
+	background: url(../images/rishumUp.png) no-repeat;
+	background-size: 850px 160px;
+}
+
+.businessSearch section.main-up { 
+	height: 180px;
+	background: url(../images/busSearchUp.png) no-repeat;
+	background-size: 850px 140px;
+}
+
+.complaintReg section.main-up { 
+	height: 50px;
+	background: url(../images/complaintUp.png) no-repeat; 
+	background-position: 710px 0px;
+}
+
+.userReg section.main-up { 
+	height: 180px;
+	background: url(../images/rishumUser.png) no-repeat; 
+	background-size: 850px 160px;
+}
+
+.confirmation section.main-up { 
+	height: 50px;
+	background: url(../images/eshurTluna.png) no-repeat; 
+	background-position: 660px 0px;
+}
+
+/************************************** Section - main-center **************************************/
+
+
+section.main-center { 
+	direction: rtl;
+	position: relative;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	left: 9%;
+	background: url(../images/center.png) no-repeat;
+	width: 860px; height: 300px;
+}
+
+.businessReg section.main-center { background: none; direction: rtl; }
+
+.businessSearch section.main-center { background: none; direction: rtl; }
+
+.complaintReg section.main-center { background: none; direction: rtl; }
+
+.userReg section.main-center { background: none; direction: rtl; }
+
+.confirmation section.main-center { background: none; direction: rtl; }
+
+section.main-center .mainLeft {
+	float: left;
+	width: 270px; height: 300px;
+	background: url(../images/centerAsakim.png) no-repeat;
+	background-position: 70px 30px;
+}
+
+section.main-center .mainCenter {
+	float: left;
+	width: 230px; height: 300px;
+	background: url(../images/centerCenter.png) no-repeat;
+	background-position: 25px 50px;
+}
+
+
+section.main-center .mainRight {
+	float: left;
+	width: 270px; height: 300px;
+	background: url(../images/centerUser.png) no-repeat;
+	background-position: 70px 30px;
+}
+
+section.main-center ul { list-style: none; margin-right: 50px; margin-top: 140px; }
+
+section.main-center ul li { margin-top: 8px; }
+
+section.main-center a { text-decoration: none; color: #000; font-size: 14px; font-weight: bold; margin-right: 8px;}
+
+section.main-center a:hover { background-color: #e6e6e6 }
+
+section.main-center ul span { color: red; font-size: 15px; font-weight: bold; }
+
+section.main-center .mainCenter ul { margin-top: 100px; margin-right: 30px; }
+
+.businessReg section.main-center ul { margin-top: 0px; margin-right: 40px; float: right; height: 300px; }
+
+.businessReg section.main-center ul li { border-style: none; }
+
+.businessReg section.main-center h4 { color: #2b2e7e; }
+
+.businessReg section.main-center form input { width: 250px; padding: 2px 2px; }
+
+.businessReg section.main-center form .btn { border-style: none; background-color: #fff; color: red; margin-top: 8px; margin-right: 8px; width: 48px; font-size: 15px; font-weight: bold; }
+
+.businessReg section.main-center .formUp { position: absolute; margin-right: 250px;}
+
+.businessReg section.main-center .formDown { position: absolute; margin-top: 70px; margin-right: 250px; }
+
+.businessReg section.main-center .formDown .form-group { margin-top: 10px; }
+
+.businessReg section.main-center .formDown input { width: 150px; }
+
+.businessReg section.main-center .formDown .formRight { float: right; }
+
+.businessReg section.main-center .formDown .formRight label { width: 100px; display: inline-block; color: #1f7c6a; }
+
+.businessReg section.main-center .formDown .formLeft { float: right; margin-right: 45px; }
+
+.businessReg section.main-center .formDown .formLeft label { width: 50px; display: inline-block; color: #1f7c6a; }
+
+.businessReg section.main-center .formDown .rishumButton { margin-right: 200px; margin-top: 50px; }
+
+.businessReg .checkbox { position: absolute; margin-top: 200px;}
+
+.businessReg .checkbox img { width: 70px; }
+
+.businessSearch section.main-center form { margin-right: 40px; }
+
+.businessSearch section.main-center label { color: #1f7c6a; margin-left: 10px; }
+
+.businessSearch section.main-center form .form-control{ width: 200px; padding: 2px 2px; }
+
+.businessSearch section.main-center select { border-style: none; background-color: #eaeaea; width: 150px; padding: 1px 1px; }
+
+.businessSearch section.main-center form .btn { border-style: none; background-color: #fff; color: red; margin-top: 8px; margin-right: 8px; width: 40px;  font-size: 15px; font-weight: bold; }
+
+.complaintReg section.main-center { margin-top: 0px;  height: 800px; }
+
+.complaintReg section.main-center ul { margin-top: 0px; padding-right: 0px; float: right; }
+
+.complaintReg section.main-center h4 { margin-right: 10px; margin-bottom: 10px; color: #2b2e7e; }
+
+.complaintReg section.main-center label { margin-right: 10px; color: #1f7c6a; }
+
+.complaintReg section.main-center form .btn { border-style: none; background-color: #fff; color: red; margin-top: 30px; margin-right: 8px; width: 40px;  position: absolute; font-size: 15px; font-weight: bold; }
+
+.complaintReg section.main-center .upForm { margin-right: 250px; }
+
+.complaintReg section.main-center .upForm form.simple-form { height: 80px; }
+
+.complaintReg section.main-center .upForm div.form-group { display: inline-block; }
+
+.complaintReg section.main-center .upForm div.form-group input { width: 260px; float: right; margin-top: 10px; padding: 3px 14px; }
+
+#businessResults { display: inline-block; padding: 2px 2px; }
+
+#businessResults label { display: inline-block; width: 40px; padding: 2px 2px; }
+
+#businessResults p { display: inline-block; }
+
+#businessResults p:last-child { display:inline-block; visibility: hidden; }
+
+.complaintReg section.main-center .bottomForm { margin-right: 250px; }
+
+.complaintReg section.main-center .bottomForm div.form-group input { padding: 3px 14px; }
+
+.complaintReg section.main-center .bottomForm div.form-group .freeText { height: 170px; width: 637px; }
+
+.complaintReg section.main-center .bottomForm div.form-group .solution { width: 100%; }
+
+.complaintReg section.main-center .bottomForm .btn { width: 100px; margin-right: 280px; font-size: 15px; font-weight: bold; }
+
+.userReg section.main-center ul { margin-top: 0px; margin-right: 40px; float: right;}
+
+.userReg section.main-center form { position: absolute; margin-right: 250px;}
+
+.userReg section.main-center form input { width: 160px; padding: 2px 2px; }
+
+.userReg section.main-center form label { width: 100px; display: inline-block; color: #1f7c6a; }
+
+.userReg section.main-center h4 { color: #2b2e7e; }
+
+.userReg section.main-center form .btn { width: 60px; border-style: none; background-color: #fff; color: red; margin-top: 70px; margin-right: 8px; width: 40px;  position: relative; font-size: 15px; font-weight: bold; }
+
+.userReg section.main-center form .formRight { float: right; }
+
+.userReg section.main-center form .formLeft { float: right; margin-right: 45px; }
+
+.confirmation section.main-center { margin-top: 0px;  height: 800px; }
+
+.confirmation section.main-center ul { height: 300px; margin-top: 0px; padding-right: 0px; float: right; }
+
+.confirmation section.main-center .confirmationP { margin-right: 250px; }
+
+.confirmation section.main-center .confirmationP p { line-height: 30px; }
+
+.confirmation section.main-center .confirmationP span { font-weight: bold; }
+
+.confirmation section.main-center .confirmationP a { color: #207b6c; font-size: 18px; }
+
+.confirmation section.main-center .confirmationP a:hover { background: #fff; text-decoration: underline; }
+
+
+/************************************** Section - main-bottom **************************************/
+
+section.main-bottom { 
+	position: relative;
+	margin-top: 20px; margin-bottom: 20px;
+	width: 860px; height: 300px;
+	left: 7%;
+	background: url(../images/main-bottom.png) no-repeat;
+	background-size: 850px 320px;
+}
+
+.businessReg section.main-bottom { background: none; height: 210px; }
+
+.businessSearch section.main-bottom { background: none; height: 210px; }
+
+.complaintReg section.main-bottom { background: none; height: 210px; }
+
+.userReg section.main-bottom { background: none; height: 210px; }
+
+/************************************** Nav - bottom-nav **************************************/
+
+
+nav.bottom-nav { background-color: red; width: 100%; }
+
+nav.bottom-nav::after { content:''; display: block; clear: both; }
+
+nav.bottom-nav ul { list-style: none; text-align: center; }
+
+nav.bottom-nav ul li { display: inline-block; margin: 8px 8px 10px;}
+
+nav.bottom-nav ul li a { 
+	color: #fff;
+	text-decoration: none;
+	position: relative;
+}
+
+nav.bottom-nav li + li:before{
+    content: " | ";
+    color: #fff;
+    padding-right: 10px;
+}
+
+
+/************************************** Footer **************************************/
+
+footer { height: 150px; width: 100%; }
+
+footer img { 
+	display: inline-block;
+    margin: auto;
+    width: 19%;
+}
+
+
+
+/************************************** Modal **************************************/
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 15px;
+    width: 320px;
+    height: 150px;
+    text-align: center;
+}
+
+
+.close {
+    color: #aaa;
+    float: right;
+    top: 0px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal a.newUsers { 
+	float: right;
+	margin-right: 20px;
+	margin-top: 30px;
+	border: 3px solid #1f7c6a; 
+	border-radius: 5px; 
+	padding: 30px 30px; 
+	font-weight: bold;
+	text-decoration: none;
+	color: #000;
+    -webkit-transition: background 0.5s linear;
+    -moz-transition: background 0.5s linear;
+    -ms-transition: background 0.5s linear;
+    -o-transition: background 0.5s linear;
+    transition: background 0.5s linear;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.modal a.newUsers:hover { background-color: #d1d1d1; color:#fff; }
+
+
+
+
+
+
+
+
+/**{
+	margin: 0px;
+	padding: 0px;
+}
+
+body { 
+	width: 100%;
+	text-align: center; 
+}
+img{
+	display:inline-block;
+	margin-top:15px;
+}
+#nav{
+	display: block;
+	margin-right: 20px;
+}
+#content{
+	width:720px;
+	margin-top:15px; 
+}
+#sidebar{
+	right: 350px;
+	top: 20px;
+	position: absolute;
+	z-index: 0;
+}
+#wrapper {
+	width: 900px; 
+	text-align: right; 
+	margin-left: 430px;
+
+}
+
+.checkbox img{
+	margin-left: 15px;
+	margin-right: 20px;
+}
+
+
+ #result-bus{
+ 	text-align: left;
+ 	float:left;
+	width: 200px;
+	height: 300px;
+	padding: 10px;
+	margin-top: 20px;
+	margin-left: 16px;
+	margin-bottom: 20px;
+	border: 2px solid #AAAAAA;
+	display:inline-block;
+ }
+
+ #header{
+ 	display: block;
+ }
+
+
+ .Business-name{
+ 	width:400px;
+
+ }
+ h4{
+ 	text-align: left;
+ }
+
+ .simple-form{
+	text-align: left;
+ 	margin-right: 100px;
+ 	width:750px;
+ 
+ }
+ .form-group{
+ 	width:150px;
+	display:inline-block;
+ }*/
