@@ -191,6 +191,13 @@ section.main-up {
 	background-position: 660px 0px;
 }
 
+.userPortal section.main-up { 
+	height: 150px;
+	background: url(../images/userPortalHeader.png) no-repeat; 
+	background-position: 0px 0px;
+	background-size: 840px 140px;
+}
+
 /************************************** Section - main-center **************************************/
 
 
@@ -201,7 +208,7 @@ section.main-center {
 	margin-bottom: 20px;
 	left: 9%;
 	background: url(../images/center.png) no-repeat;
-	width: 860px; height: 300px;
+	width: 860px; min-height: 300px;
 }
 
 .businessReg section.main-center { background: none; direction: rtl; }
@@ -213,6 +220,8 @@ section.main-center {
 .userReg section.main-center { background: none; direction: rtl; }
 
 .confirmation section.main-center { background: none; direction: rtl; }
+
+.userPortal section.main-center { background: none; direction: rtl; margin-top: 0px; }
 
 section.main-center .mainLeft {
 	float: left;
@@ -274,11 +283,57 @@ section.main-center .mainCenter ul { margin-top: 100px; margin-right: 30px; }
 
 .businessReg section.main-center .formDown .formLeft label { width: 50px; display: inline-block; color: #1f7c6a; }
 
-.businessReg section.main-center .formDown .rishumButton { margin-right: 200px; margin-top: 50px; }
+.businessReg section.main-center .formDown .rishumButton { margin-right: 200px; margin-top: 50px; position: absolute; }
 
-.businessReg .checkbox { position: absolute; margin-top: 200px;}
+.businessReg .checkbox { position: relative; margin-top: 100px; clear: both;}
 
-.businessReg .checkbox img { width: 70px; }
+.businessReg section.main-center .checkbox div { margin-right: 10px; margin-left: 30px; margin-top: 40px; float: right; }
+
+.businessReg .checkbox #tagEmun { 
+	background: url(../images/tav-emun.png) 0 0px no-repeat; 
+	width: 90px; 
+	height: 80px; 
+	-webkit-appearance:none;
+  	-moz-appearance:none;
+  	-ms-appearance:none;
+  	appearance:none;
+  	outline: 0;
+ }
+
+.businessReg .checkbox #tagHogen { 
+	background: url(../images/tav-hogen.png) 0 0px no-repeat; 
+	width: 90px; 
+	height: 80px; 
+	-webkit-appearance:none;
+  	-moz-appearance:none;
+  	-ms-appearance:none;
+  	appearance:none;
+  	outline: 0;
+ }
+
+.businessReg .checkbox #tagYeshuv { 
+	background: url(../images/tav-yeshuv.png) 0 0px no-repeat; 
+	width: 90px; 
+	height: 80px; 
+	-webkit-appearance:none;
+  	-moz-appearance:none;
+  	-ms-appearance:none;
+  	appearance:none;
+  	outline: 0;
+ }
+
+.businessReg .checkbox #tagSviva { 
+	background: url(../images/tav-sviva.png) 0 0px no-repeat; 
+	width: 90px; 
+	height: 80px; 
+	-webkit-appearance:none;
+  	-moz-appearance:none;
+  	-ms-appearance:none;
+  	appearance:none;
+  	outline: 0;
+ }
+
+.businessReg .checkbox input:checked { opacity: 0.3; outline: 0; }
 
 .businessSearch section.main-center form { margin-right: 40px; }
 
@@ -289,6 +344,24 @@ section.main-center .mainCenter ul { margin-top: 100px; margin-right: 30px; }
 .businessSearch section.main-center select { border-style: none; background-color: #eaeaea; width: 150px; padding: 1px 1px; }
 
 .businessSearch section.main-center form .btn { border-style: none; background-color: #fff; color: red; margin-top: 8px; margin-right: 8px; width: 40px;  font-size: 15px; font-weight: bold; }
+
+.businessSearch section.main-center #bus-dev { direction: rtl; margin-right: 40px; margin-top: 20px; padding: 10px; }
+
+.businessSearch section.main-center #bus-dev .busRes { position: relative; border-right: 5px solid #292e7f; border-bottom: 2px solid #9496bd; display: inline-block; width: 360px; margin-left: 30px; margin-bottom: 30px; }
+
+.businessSearch section.main-center #bus-dev .busRes .busLogo { display: inline-block; width: 100px; height: 95px; background: url(../images/logo-placeholder.jpg) no-repeat; background-size: 90px 90px; }
+
+.businessSearch section.main-center #bus-dev .busRes h3 { position: absolute; color: #292e7f; top: 10px; right: 105px; }
+
+.businessSearch section.main-center #bus-dev .busRes label { color: #1e7c6c; }
+
+.businessSearch section.main-center #bus-dev .busRes .phone { position: absolute; top: 57px; right: 105px; font-size: 13px; font-weight: bold; }
+
+.businessSearch section.main-center #bus-dev .busRes .sector { position: absolute; top: 40px; right: 105px; font-size: 13px; font-weight: bold; }
+
+.businessSearch section.main-center #bus-dev .busRes hr { border-top: #f2f2f2; border-left: #f2f2f2; margin-right: 15px; }
+
+.businessSearch section.main-center #bus-dev .busRes p { background: url(../images/businessResultsButtom.png) no-repeat; width: 340px; height: 50px; display: inline-block; }
 
 .complaintReg section.main-center { margin-top: 0px;  height: 800px; }
 
@@ -356,6 +429,9 @@ section.main-center .mainCenter ul { margin-top: 100px; margin-right: 30px; }
 
 .confirmation section.main-center .confirmationP a:hover { background: #fff; text-decoration: underline; }
 
+.userPortal section.main-center ul { height: 300px; margin-top: 0px; padding-right: 0px; float: right; }
+
+
 
 /************************************** Section - main-bottom **************************************/
 
@@ -375,6 +451,8 @@ section.main-bottom {
 .complaintReg section.main-bottom { background: none; height: 210px; }
 
 .userReg section.main-bottom { background: none; height: 210px; }
+
+.userPortal section.main-bottom { background: none; height: 210px; }
 
 /************************************** Nav - bottom-nav **************************************/
 
@@ -477,3 +555,84 @@ footer img {
 
 
 
+
+
+
+
+
+/**{
+	margin: 0px;
+	padding: 0px;
+}
+
+body { 
+	width: 100%;
+	text-align: center; 
+}
+img{
+	display:inline-block;
+	margin-top:15px;
+}
+#nav{
+	display: block;
+	margin-right: 20px;
+}
+#content{
+	width:720px;
+	margin-top:15px; 
+}
+#sidebar{
+	right: 350px;
+	top: 20px;
+	position: absolute;
+	z-index: 0;
+}
+#wrapper {
+	width: 900px; 
+	text-align: right; 
+	margin-left: 430px;
+
+}
+
+.checkbox img{
+	margin-left: 15px;
+	margin-right: 20px;
+}
+
+
+ #result-bus{
+ 	text-align: left;
+ 	float:left;
+	width: 200px;
+	height: 300px;
+	padding: 10px;
+	margin-top: 20px;
+	margin-left: 16px;
+	margin-bottom: 20px;
+	border: 2px solid #AAAAAA;
+	display:inline-block;
+ }
+
+ #header{
+ 	display: block;
+ }
+
+
+ .Business-name{
+ 	width:400px;
+
+ }
+ h4{
+ 	text-align: left;
+ }
+
+ .simple-form{
+	text-align: left;
+ 	margin-right: 100px;
+ 	width:750px;
+ 
+ }
+ .form-group{
+ 	width:150px;
+	display:inline-block;
+ }*/

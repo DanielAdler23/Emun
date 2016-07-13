@@ -4,11 +4,11 @@
     <title>New Business</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"> -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css">
 </head>
 <body ng-app="addBus" class="businessReg">
     <div id="page">
@@ -120,8 +120,8 @@
 
             <form class="formUp">
                 <h4>עסק רשום</h4>
-                <input class="form-control" ng-model="business.name" placeholder="מייל" required>
-                <input class="form-control" ng-model="business.name" placeholder="סיסמא" required>
+                <input class="form-control" ng-model="business.search.name" placeholder="מייל" required>
+                <input class="form-control" ng-model="business.search.name" placeholder="סיסמא" required>
                 <input type="submit" value="התחבר" ng-click="search(business)" class="btn btn-default">
              </form>
 
@@ -163,12 +163,26 @@
                         <input type="email" class="form-control" ng-model="business.mail" required>
                     </div>
                 </div>
-                <!-- <div class="checkbox" id="emun">
-                    <input type="checkbox" name="emun" ng-model="business.emun.emun"><img src="images/tav-emun.png"></input>
-                    <input type="checkbox" name="emun" ng-model="business.emun.hogen"><img src="images/tav-hogen.png"></input>
-                    <input type="checkbox" name="emun" ng-model="business.emun.yeshuv"><img src="images/tav-yeshuv.png"></input>
-                    <input type="checkbox" name="emun" ng-model="business.emun.sviva"><img src="images/tav-sviva.png"></input>
-                </div> -->
+
+                <div class="checkbox" id="emun">
+
+                        <div>
+                        <label ><input type="checkbox" name="emun" id="tagEmun" ng-model="business.emun.emun"></label>
+                        </div>
+
+                        <div>
+                        <label ><input type="checkbox" name="emun" id="tagHogen" ng-model="business.emun.hogen"></label>
+                        </div>
+
+                        <div>
+                        <label ><input type="checkbox" name="emun" id="tagYeshuv" ng-model="business.emun.yeshuv"></label>
+                        </div>
+
+                        <div>
+                        <label ><input type="checkbox" name="emun" id="tagSviva" ng-model="business.emun.sviva"></label>
+                        </div>
+                    </div>
+                
                 
                 <input type="submit" value="הרשם" ng-click="submit(business)" class="btn btn-default rishumButton">
             </form>

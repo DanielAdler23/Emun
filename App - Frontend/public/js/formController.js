@@ -60,6 +60,7 @@ addBus.controller('formController', ['$scope',
 	function($scope){
 
 		$scope.submit = function(business){
+			console.log(business);
 			$.ajax({
 				type: "POST",
 				url: "https://emun.herokuapp.com/new-business",
@@ -80,8 +81,7 @@ addUser.controller('userCtrl', ['$scope',
 	function($scope){
 
 		$scope.submit = function(user){
-
-
+			console.log(user);
 			$.ajax({
 				type: "POST",
 				url: "https://emun.herokuapp.com/new-user",
@@ -156,6 +156,8 @@ searchBus.controller('business-form', ['$scope',
 	function($scope){
 
 		$scope.submit = function(business){
+
+		$('#bus-dev').empty();
 		console.log(business);
 			$.ajax({
 				type: "POST",
@@ -170,15 +172,11 @@ searchBus.controller('business-form', ['$scope',
 
 					      for (var i=0;i<json.length;++i)
 					      {
-					          $('#bus-dev').append('<div id="result-bus" class=bus'+i+'>'+'<p> name: '+json[i].name+'</p>'+
-				          											   '<p>'+'sector: '+json[i].sector+'</p>'+
-				          											   '<p>'+'contact: '+json[i].contact+'</p>'+
-				          											   '<p>'+'address: '+json[i].address+'</p>'+	
-				          											   '<p>'+'phone: '+json[i].phone+'</p>'+	
-				          											   '<p>'+'mobile: '+json[i].mobile+'</p>'+	
-				          											   '<p>'+'web: '+json[i].web+'</p>'+	
-				          											   '<p>'+'mail: '+json[i].mail+'</p>'+	
-				          											   '<p>'+'emun: '+json[i].emun+'</p>'+'</>');
+					          $('#bus-dev').append('<div id="result-bus" class="busRes">'+ '<span class="busLogo"></span>' + '<h3>'+json[i].name+'</h3>'+
+				          											   '<span class="sector"><label>'+'ענפים:</label>' + json[i].sector + '</span>'+	
+				          											   '<span class="phone"><label>'+'טלפון:</label>' + json[i].phone + '</span>'+	
+				          											   '<hr>'+'<p></p>'+
+				          											   '</div>');
 					      }
 					  }
 			});
