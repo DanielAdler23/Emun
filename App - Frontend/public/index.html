@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"> -->
 	<link rel="stylesheet" type="text/css" media="screen" href="./css/style.css">
 </head>
-<body class="home">
+<body class="home" ng-app="emun">
 	<div id="page">
 
 		<header>
@@ -23,7 +23,7 @@
 			<div class="nav-options">
 				<a class="lang" href="#"><span>sdf</span></a>
 				<a class="mitchamBus" href="#"></a>
-				<a class="mitchamCon" href="#"></a>
+				<a class="mitchamCon" href="#" onclick="mitchamCon()"></a>
 			</div>
 		</header>
 
@@ -40,18 +40,18 @@
 			</ul>
 		</nav>
 
-		<section class="sidePanels">
+		<section class="sidePanels" >
 
 			<div class="tik">
 				<h4 class="sideHeader">תיק אישי</h4>
-				<form class="simple-form">
-					<h4>שלום אורח,</h4>
+				<form class="simple-form" ng-controller="loginCtrl">
+					<h4>שלום {{user_name}},</h4>
 		           	 <div class="form-group">
-		                <input class="form-control" ng-model="business.name" placeholder="שם משתמש" required>
+		                <input class="form-control" ng-model="guest.username" placeholder="שם משתמש" required>
 		           
-		                <input class="form-control lastOne" ng-model="business.sector" placeholder="סיסמא" required>
+		                <input class="form-control lastOne" ng-model="guest.password" placeholder="סיסמא" required>
 		            </div>
-		            <input type="submit" value="התחבר" ng-click="search(business)" class="btn btn-default">
+		            <input type="submit" value="התחבר" ng-click="submit(guest)" class="btn btn-default">
 		            <a href="#">שכחתי סיסמא</a>
 		            <a id="modalBtn" href="#">משתמש חדש</a>
         		</form>
@@ -169,6 +169,6 @@
 		</footer>
 
 	</div>
-	<script src="js/formController.js"></script>
+	<script src="js/formController1.js"></script>
 </body>
 </html>
