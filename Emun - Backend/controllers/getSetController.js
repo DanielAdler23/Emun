@@ -49,7 +49,7 @@ exports.insertBusiness = function(_name, _sec, _contact, _addr, _phone, _mob, _w
 };
 
 
-exports.insertComplaint = function(_sub, _mess, _sol, _businessID, _userID){
+exports.insertComplaint = function(_sub, _mess, _sol, _businessID, _userID, next){
 
 	var newComplaint = new Complaint({
 		subject: _sub,
@@ -64,6 +64,7 @@ exports.insertComplaint = function(_sub, _mess, _sol, _businessID, _userID){
 			console.log("\nSaved Complaint: " + doc);
 			//console.log(doc._id);
 			var compID = doc._id;
+			next(doc._id);
 
 			Business.update({"_id": _businessID}, {$push: {"complaints": compID}}, function(err, numAffected){
 				if(err){
@@ -89,6 +90,17 @@ exports.insertComplaint = function(_sub, _mess, _sol, _businessID, _userID){
 };
 
 
+exports.getComplaints = function(_userID, next){
+	var portalInfo;
+	User.findOne({_id: _userID},{first_name:0, last_name:0, user_name:0, email:0, password:0},  function(err, complaints){
+		if(err) { console.log(err); }
+		
+		next(complaints);
+	});
+};
+
+
+
 exports.getBusiness = function(_name, _sector, _emun){
 	var query = Business.find({});
 
@@ -110,4 +122,11 @@ exports.getBusiness = function(_name, _sector, _emun){
 		query = Business.find({});
 
 	return query;
+};
+
+exports.login = function(_username, _pass, next){
+	User.findOne({user_name: _username, password: _pass}, function(err, user){
+		if(err) { console.log(err); }
+		next(user);
+	});
 };

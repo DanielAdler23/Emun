@@ -1,23 +1,24 @@
 var express = require('express');
 var app = express();
 var port = process.env.PORT || 3000;
+var session = require('express-session');
 var getset = require('./controllers/getSetController');
 var bodyParser = require('body-parser');
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
+//var routesArray = ['/login-user', '/login-business', '/user-portal', '/business-portal'];
 
 /*** Server Settings ***/
 app.set('port', port);
-app.use('/', express.static('./public'));
+app.use('/', express.static(__dirname + '/public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({cookie:{path: '/', secure: false},secret:"emunadmin2016", resave:false, saveUninitialized:false}));
 app.use(function(req, res, next){
 	res.header("Access-Control-Allow-Origin", "*");
 	res.header("Access-Control_Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	res.set("Content-Type", "application/x-www-form-urlencoded");
 	next();
 });
-
 
 
 app.get('*', function(req, res){
@@ -30,12 +31,43 @@ app.get('/home', function(req, res){
 });
 
 app.post('/login-user', function(req, res){
-	res.sendFile(__dirname + '/public/404.html');
+	var username = req.body.username;
+	var pass = req.body.password;
+
+	getset.login(username, pass, function(user){
+		
+		if(!user) {
+			return res.status(404).send();
+		}
+
+		session.user = user;
+		if(session.user){
+			console.log("USER COOKIE WAS CREATED!");
+			res.json(user);
+		}
+		else
+			return res.status(404).send();
+	});
 });
 
 app.post('/login-business', function(req, res){
 	res.sendFile(__dirname + '/public/404.html');
 });
+
+app.post('/user-portal', function(req, res){
+	if(!session.user){
+		return res.status(401).send();
+	}
+
+	getset.getComplaints(session.user, function(portalInfo){
+		res.json(portalInfo);
+	});
+});
+
+app.post('/business-portal', function(req, res){
+
+});
+
 
 app.post('/new-user', function(req, res){
 	
@@ -71,14 +103,24 @@ app.post('/new-complaint', function(req, res){
 
 	var businessID = req.body.busID;
 	var userID = req.body.userID;
+	var complaintID;
 
 	var subject = req.body.complaint.subject;
 	var	message = req.body.complaint.message;
 	var solution = req.body.complaint.solution;
 
-	getset.insertComplaint(subject, message, solution, businessID, userID);
+	getset.insertComplaint(subject, message, solution, businessID, userID, function(id){
+		var package = {
+			"Subject": subject,
+			"Message": message,
+			"Solution": solution,
+			"Id": id
+		};
 
-	res.send(subject + ' ' + message + ' ' + solution);
+		res.send(package);
+	});
+
+	
 });
 
 
