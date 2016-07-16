@@ -60,12 +60,21 @@ app.post('/user-portal', function(req, res){
 	}
 
 	getset.getComplaints(session.user, function(portalInfo){
+
 		res.json(portalInfo);
 	});
 });
 
 app.post('/business-portal', function(req, res){
 
+});
+
+app.post('/logout', function(req, res){
+	session.user = null;
+	if(session.user !== null)
+		return res.status(500).send();
+
+	return res.status(200).send();
 });
 
 
@@ -102,6 +111,7 @@ app.post('/new-business', function(req, res){
 app.post('/new-complaint', function(req, res){
 
 	var businessID = req.body.busID;
+	var businessNAME = req.body.busNAME;
 	var userID = req.body.userID;
 	var complaintID;
 
@@ -109,7 +119,7 @@ app.post('/new-complaint', function(req, res){
 	var	message = req.body.complaint.message;
 	var solution = req.body.complaint.solution;
 
-	getset.insertComplaint(subject, message, solution, businessID, userID, function(id){
+	getset.insertComplaint(subject, message, solution, businessID, userID, businessNAME, function(id){
 		var package = {
 			"Subject": subject,
 			"Message": message,

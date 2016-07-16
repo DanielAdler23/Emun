@@ -5,6 +5,8 @@ var complainSchema = new schema({
 	subject: {type:String, required:true},
 	message: {type:String, required:true},
 	solution: {type:String},
+	userID: {type:String},
+	businessID: {type:String}
 	},{collection: 'complaints'});
 
 

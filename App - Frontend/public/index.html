@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Emun</title>
+	<link rel="shortcut icon" href="./images/favicon.png" type="image/png">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -23,7 +24,7 @@
 			<div class="nav-options">
 				<a class="lang" href="#"><span>sdf</span></a>
 				<a class="mitchamBus" href="#"></a>
-				<a class="mitchamCon" href="#" onclick="mitchamCon()"></a>
+				<a class="mitchamCon" href="userPortal.html"></a>
 			</div>
 		</header>
 
@@ -51,7 +52,8 @@
 		           
 		                <input class="form-control lastOne" ng-model="guest.password" placeholder="סיסמא" required>
 		            </div>
-		            <input type="submit" value="התחבר" ng-click="submit(guest)" class="btn btn-default">
+		            <input type="submit" value="התחבר" ng-show="user_name=='אורח'" ng-click="submit(guest)" class="btn btn-default">
+		            <input type="submit" value="התנתק" ng-show="user_name!=='אורח'" ng-click="logout()" class="btn btn-default">
 		            <a href="#">שכחתי סיסמא</a>
 		            <a id="modalBtn" href="#">משתמש חדש</a>
         		</form>

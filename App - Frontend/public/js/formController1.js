@@ -25,6 +25,7 @@ window.onclick = function(event) {
 };
 
 var businessID;
+var businessNAME;
 var user_Name;
 var complaintId;
 var busChosen = 0;
@@ -37,6 +38,7 @@ function updateBusId(busElement){
 	if(busChosen === 0){
 		busElement.style.backgroundColor = "#E6E6E6";
 		businessID = busElement.getElementsByTagName('p')[2].innerHTML;
+		businessNAME = busElement.getElementsByTagName('p')[0].innerHTML;
 		busChosen = 1;
 		setCookie("businessName", busElement.getElementsByTagName('p')[0].innerHTML, 0);
 	}
@@ -49,6 +51,7 @@ function updateBusId(busElement){
 		}
 		busElement.style.backgroundColor = "#E6E6E6";
 		businessID = busElement.getElementsByTagName('p')[2].innerHTML;
+		businessNAME = busElement.getElementsByTagName('p')[0].innerHTML;
 		setCookie("businessName", busElement.getElementsByTagName('p')[0].innerHTML, 0);
 	}
 }
@@ -76,6 +79,23 @@ emun.controller('loginCtrl', ['$scope',
 				}
 			});
 			$scope.user_name = getCookie("currentUserName");
+		};
+
+
+		$scope.logout = function(){
+
+			$.ajax({
+				type: "POST",
+				url: "https://emun.herokuapp.com/logout",
+				cache: false,
+				async: false,
+				success: function(user) {
+					console.log("logged out...");
+					setCookie("currentUserName", "אורח", 1);
+					setCookie("currentUserId", "", 1);
+					window.location='index.html';
+				}
+			});
 		};
 	}]);
 
@@ -144,14 +164,18 @@ emun.controller('compCtrl', ['$scope',
 
 		$scope.submit = function(complaint){
 			console.log(complaint);
-
+			if(getCookie("currentUserId") === ""){
+				alert("עליך להרשם על מנת להגיש תלונה");
+				return;
+			}
 			$.ajax({
 				type: "POST",
 				url: "https://emun.herokuapp.com/new-complaint",
 				data: {
 						complaint: complaint,
 						userID: getCookie("currentUserId"),
-						busID: businessID
+						busID: businessID,
+						busNAME: businessNAME
 					},
 				cache: false,
 				success: function(data) {
@@ -214,20 +238,27 @@ emun.controller('confirCtrl', ['$scope',
 	}]);
 
 
-function mitchamCon(){
-	$.ajax({
-		type: "POST",
-		url: "https://emun.herokuapp.com/user-portal",
-		cache: false,
-		success: function(complaints) {
-			console.log("Form Data Sent successfully");
-			console.log(JSON.parse(complaints));
-			//window.location='index.html';
-		}
-	});
+emun.controller('userPortal', ['$scope',
+	function($scope){
+
+		$scope.init = function(){
+			$.ajax({
+			type: "POST",
+			url: "https://emun.herokuapp.com/user-portal",
+			cache: false,
+			success: function(complaints) {
+				console.log(complaints);
+				var json = JSON.parse(complaints);
+				//window.location='userPortal.html';
+				for (var i=0;i<json.length;++i){
+			          $('#allComplaints').append('<div>' + '<span>' + (i + 1) + '</span>' + '<span>' + json[i].complaintID + '</span>' + '<span>' + json[i].businessName + '</span>' + '</div>' );									  
+			      }
+
+			}
+		});
+	};
 }
-
-
+]);
 
 
 function setCookie(cname, cvalue, session) {

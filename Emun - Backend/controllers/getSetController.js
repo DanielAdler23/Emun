@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var User = require('./schemas/userSchema');
 var Business = require('./schemas/businessSchema');
 var Complaint = require('./schemas/complaintSchema');
-
+var complaintsInfo = [];
 
 exports.insertUser = function(_first, _last, _user, _email, _pass){
 	var newUser = new User({
@@ -49,12 +49,14 @@ exports.insertBusiness = function(_name, _sec, _contact, _addr, _phone, _mob, _w
 };
 
 
-exports.insertComplaint = function(_sub, _mess, _sol, _businessID, _userID, next){
+exports.insertComplaint = function(_sub, _mess, _sol, _businessID, _userID, _businessNAME, next){
 
 	var newComplaint = new Complaint({
 		subject: _sub,
 		message: _mess,
-		solution: _sol
+		solution: _sol,
+		userID: _userID,
+		businessID: _businessNAME
 	});
 
 	newComplaint.save(function(err, doc){
@@ -91,13 +93,34 @@ exports.insertComplaint = function(_sub, _mess, _sol, _businessID, _userID, next
 
 
 exports.getComplaints = function(_userID, next){
-	var portalInfo;
-	User.findOne({_id: _userID},{first_name:0, last_name:0, user_name:0, email:0, password:0},  function(err, complaints){
+	complaintsInfo = [];
+	User.findOne({_id: _userID},{_id:0, __v:0, first_name:0, last_name:0, user_name:0, email:0, password:0},  function(err, complaints){
 		if(err) { console.log(err); }
 		
-		next(complaints);
+		for(var i = 0; i < complaints.complaints.length; i++){
+			if(i == complaints.complaints.length - 1)
+				createJSON(complaints.complaints[i], next);
+
+			createJSON(complaints.complaints[i], 0);
+		}		
 	});
 };
+
+function createJSON(complaintNum, final){
+
+	if(final !== 0){
+		Complaint.findOne({_id: complaintNum},{subject:0, message:0, solution:0, userID:0}, function(err, busName){
+				if(err) { console.log(err); }
+				complaintsInfo.push({"complaintID":complaintNum, "businessName":busName.businessID});
+				final(complaintsInfo);
+		});
+	}
+
+	Complaint.findOne({_id: complaintNum},{subject:0, message:0, solution:0, userID:0}, function(err, busName){
+				if(err) { console.log(err); }
+				complaintsInfo.push({"complaintID":complaintNum, "businessName":busName.businessID});
+		});
+}
 
 
 
