@@ -10,6 +10,7 @@ var businessSchema = new schema({
 	mobile: {type:String, required:true, uniqe:true},
 	web: {type:String, uniqe:true},
 	mail: {type:String, required:true, uniqe:true},
+	password: {type:String, required:true},
 	emun: {type:Array},
 	complaints: {type:Array}
 },{collection: 'businesses'});

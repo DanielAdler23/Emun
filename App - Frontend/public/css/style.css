@@ -283,7 +283,7 @@ section.main-center .mainCenter ul { margin-top: 100px; margin-right: 30px; }
 
 .businessReg section.main-center .formDown .formLeft label { width: 50px; display: inline-block; color: #1f7c6a; }
 
-.businessReg section.main-center .formDown .rishumButton { margin-right: 200px; margin-top: 50px; position: absolute; }
+.businessReg section.main-center .formDown .rishumButton { margin-right: 100px; margin-top: 50px; position: absolute; }
 
 .businessReg .checkbox { position: relative; margin-top: 100px; clear: both;}
 
@@ -431,6 +431,16 @@ section.main-center .mainCenter ul { margin-top: 100px; margin-right: 30px; }
 
 .userPortal section.main-center ul { height: 300px; margin-top: 0px; padding-right: 0px; float: right; }
 
+.userPortal section.main-center h3{color: #2b2e7e; font-weight: 600;margin-right:78px;margin-top:7px;  display: inline-block;}
+
+.userPortal section.main-center #allComplaints { margin-right:77px; margin-top:8px;  display: inline-block;  }
+
+.userPortal section.main-center #allComplaints th {border-bottom: 1px solid #ddd;color:#1f7c6a; text-align: right;  }
+
+.userPortal section.main-center #allComplaints td:first-child{font-weight:500;  border-bottom: 1px dotted #ddd; width:40px; height:30px;}
+
+ .userPortal section.main-center #allComplaints td{font-weight:500; border-bottom: 1px dotted #ddd; width:200px; }
+
 
 
 /************************************** Section - main-bottom **************************************/
@@ -552,87 +562,3 @@ footer img {
 }
 
 .modal a.newUsers:hover { background-color: #d1d1d1; color:#fff; }
-
-
-
-
-
-
-
-
-/**{
-	margin: 0px;
-	padding: 0px;
-}
-
-body { 
-	width: 100%;
-	text-align: center; 
-}
-img{
-	display:inline-block;
-	margin-top:15px;
-}
-#nav{
-	display: block;
-	margin-right: 20px;
-}
-#content{
-	width:720px;
-	margin-top:15px; 
-}
-#sidebar{
-	right: 350px;
-	top: 20px;
-	position: absolute;
-	z-index: 0;
-}
-#wrapper {
-	width: 900px; 
-	text-align: right; 
-	margin-left: 430px;
-
-}
-
-.checkbox img{
-	margin-left: 15px;
-	margin-right: 20px;
-}
-
-
- #result-bus{
- 	text-align: left;
- 	float:left;
-	width: 200px;
-	height: 300px;
-	padding: 10px;
-	margin-top: 20px;
-	margin-left: 16px;
-	margin-bottom: 20px;
-	border: 2px solid #AAAAAA;
-	display:inline-block;
- }
-
- #header{
- 	display: block;
- }
-
-
- .Business-name{
- 	width:400px;
-
- }
- h4{
- 	text-align: left;
- }
-
- .simple-form{
-	text-align: left;
- 	margin-right: 100px;
- 	width:750px;
- 
- }
- .form-group{
- 	width:150px;
-	display:inline-block;
- }*/

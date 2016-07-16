@@ -122,9 +122,9 @@
 
             <form class="formUp">
                 <h4>עסק רשום</h4>
-                <input class="form-control" ng-model="business.search.name" placeholder="מייל" required>
-                <input class="form-control" ng-model="business.search.name" placeholder="סיסמא" required>
-                <input type="submit" value="התחבר" ng-click="search(business)" class="btn btn-default">
+                <input class="form-control" ng-model="business.username" placeholder="מייל" required>
+                <input class="form-control" ng-model="business.password" placeholder="סיסמא" required>
+                <input type="submit" value="התחבר" ng-click="login(business)" class="btn btn-default">
              </form>
 
             <form class="simple-form formDown">
@@ -146,6 +146,10 @@
                         <label>אתר אינטרנט</label>
                         <input class="form-control" ng-model="business.web">
                     </div>
+                    <div class="form-group">
+                        <label>סיסמא*</label>
+                        <input class="form-control" ng-model="business.newPassword">
+                    </div>
                 </div>
                 <div class="formLeft">
                     <div class="form-group">
@@ -164,6 +168,7 @@
                         <label>דוא"ל*</label>
                         <input type="email" class="form-control" ng-model="business.mail" required>
                     </div>
+                    
                 </div>
 
                 <div class="checkbox" id="emun">

@@ -25,7 +25,7 @@ exports.insertUser = function(_first, _last, _user, _email, _pass){
 
 
 
-exports.insertBusiness = function(_name, _sec, _contact, _addr, _phone, _mob, _web, _mail, _emun){
+exports.insertBusiness = function(_name, _sec, _contact, _addr, _phone, _mob, _web, _mail, _password, _emun){
 	var newBusiness = new Business({
 		name: _name,
 		sector: _sec,
@@ -35,6 +35,7 @@ exports.insertBusiness = function(_name, _sec, _contact, _addr, _phone, _mob, _w
 		mobile: _mob,
 		web: _web,
 		mail: _mail,
+		password: _password,
 		emun: _emun,
 	});
 
@@ -147,8 +148,14 @@ exports.getBusiness = function(_name, _sector, _emun){
 	return query;
 };
 
-exports.login = function(_username, _pass, next){
-	User.findOne({user_name: _username, password: _pass}, function(err, user){
+exports.login = function(_username, _pass, type,  next){
+	if(type === 0){
+		User.findOne({user_name: _username, password: _pass}, function(err, user){
+			if(err) { console.log(err); }
+			next(user);
+		});
+	}
+	Business.findOne({mail: _username, password: _pass}, function(err, user){
 		if(err) { console.log(err); }
 		next(user);
 	});

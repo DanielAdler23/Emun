@@ -29,6 +29,7 @@ var businessNAME;
 var user_Name;
 var complaintId;
 var busChosen = 0;
+var complaintsArray = [];
 if(getCookie("currentUserName") === ""){
 	setCookie("currentUserName", "אורח", 1);
 }
@@ -66,7 +67,7 @@ emun.controller('loginCtrl', ['$scope',
 			console.log(guest);
 			$.ajax({
 				type: "POST",
-				url: "https://emun.herokuapp.com/login-user",
+				url: "https://emun2.herokuapp.com/login-user",
 				data: guest,
 				cache: false,
 				async: false,
@@ -86,7 +87,7 @@ emun.controller('loginCtrl', ['$scope',
 
 			$.ajax({
 				type: "POST",
-				url: "https://emun.herokuapp.com/logout",
+				url: "https://emun2.herokuapp.com/logoutUser",
 				cache: false,
 				async: false,
 				success: function(user) {
@@ -108,11 +109,48 @@ emun.controller('formController', ['$scope',
 			console.log(business);
 			$.ajax({
 				type: "POST",
-				url: "https://emun.herokuapp.com/new-business",
+				url: "https://emun2.herokuapp.com/new-business",
 				data: business,
 				cache: false,
 				success: function() {
 					console.log("Form Data Sent successfully");
+					window.location='index.html';
+				}
+			});
+		};
+
+
+		
+		$scope.login = function(guest){
+			console.log(guest);
+			$.ajax({
+				type: "POST",
+				url: "https://emun2.herokuapp.com/login-business",
+				data: guest,
+				cache: false,
+				async: false,
+				success: function(user) {
+					console.log("Form Data Sent successfully");
+					var sessionBusiness = JSON.parse(user);
+					setCookie("currentUserName", sessionBusiness.name, 1);
+					setCookie("currentBusinessId", sessionBusiness._id, 1);
+					window.location='index.html';
+				}
+			});
+		};
+
+
+		$scope.logout = function(){
+
+			$.ajax({
+				type: "POST",
+				url: "https://emun2.herokuapp.com/logoutBusiness",
+				cache: false,
+				async: false,
+				success: function(user) {
+					console.log("logged out...");
+					setCookie("currentUserName", "אורח", 1);
+					setCookie("currentBusinessId", "", 1);
 					window.location='index.html';
 				}
 			});
@@ -127,7 +165,7 @@ emun.controller('userCtrl', ['$scope',
 			console.log(user);
 			$.ajax({
 				type: "POST",
-				url: "https://emun.herokuapp.com/new-user",
+				url: "https://emun2.herokuapp.com/new-user",
 				data: user,
 				cache: false,
 				success: function() {
@@ -147,7 +185,7 @@ emun.controller('compCtrl', ['$scope',
 
 			$.ajax({
 				type: "POST",
-				url: "https://emun.herokuapp.com/search-business",
+				url: "https://emun2.herokuapp.com/search-business",
 				data: business,
 				cache: false,
 				dataType: 'json',
@@ -170,12 +208,13 @@ emun.controller('compCtrl', ['$scope',
 			}
 			$.ajax({
 				type: "POST",
-				url: "https://emun.herokuapp.com/new-complaint",
+				url: "https://emun2.herokuapp.com/new-complaint",
 				data: {
 						complaint: complaint,
 						userID: getCookie("currentUserId"),
 						busID: businessID,
-						busNAME: businessNAME
+						busNAME: businessNAME,
+						userNAME: getCookie("currentUserName")
 					},
 				cache: false,
 				success: function(data) {
@@ -200,7 +239,7 @@ emun.controller('business-form', ['$scope',
 		console.log(business);
 			$.ajax({
 				type: "POST",
-				url: "https://emun.herokuapp.com/search-business",
+				url: "https://emun2.herokuapp.com/search-business",
 				data: business,
 				cache: false,
 				dataType: 'json',
@@ -240,25 +279,42 @@ emun.controller('confirCtrl', ['$scope',
 
 emun.controller('userPortal', ['$scope',
 	function($scope){
-
 		$scope.init = function(){
 			$.ajax({
 			type: "POST",
-			url: "https://emun.herokuapp.com/user-portal",
+			url: "https://emun2.herokuapp.com/user-portal",
 			cache: false,
+			async: false,
 			success: function(complaints) {
 				console.log(complaints);
 				var json = JSON.parse(complaints);
-				//window.location='userPortal.html';
-				for (var i=0;i<json.length;++i){
-			          $('#allComplaints').append('<div>' + '<span>' + (i + 1) + '</span>' + '<span>' + json[i].complaintID + '</span>' + '<span>' + json[i].businessName + '</span>' + '</div>' );									  
-			      }
-
+			 complaintsArray = json;
 			}
 		});
+		$scope.complaints = complaintsArray;
 	};
 }
 ]);
+
+
+// emun.controller('businessPortal', ['$scope',
+// 	function($scope){
+// 		$scope.init = function(){
+// 			$.ajax({
+// 			type: "POST",
+// 			url: "https://emun.herokuapp.com/business-portal",
+// 			cache: false,
+// 			async: false,
+// 			success: function(complaints) {
+// 				console.log(complaints);
+// 				var json = JSON.parse(complaints);
+// 			 complaintsArray = json;
+// 			}
+// 		});
+// 		$scope.records = complaintsArray;
+// 	};
+// }
+// ]);
 
 
 function setCookie(cname, cvalue, session) {

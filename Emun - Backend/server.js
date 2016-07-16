@@ -34,7 +34,7 @@ app.post('/login-user', function(req, res){
 	var username = req.body.username;
 	var pass = req.body.password;
 
-	getset.login(username, pass, function(user){
+	getset.login(username, pass, 0,  function(user){
 		
 		if(!user) {
 			return res.status(404).send();
@@ -50,9 +50,29 @@ app.post('/login-user', function(req, res){
 	});
 });
 
+
+
 app.post('/login-business', function(req, res){
-	res.sendFile(__dirname + '/public/404.html');
+	var email = req.body.username;
+	var pass = req.body.password;
+
+	getset.login(email, pass, 1, function(user){
+		
+		if(!user) {
+			return res.status(404).send();
+		}
+
+		session.business = user;
+		if(session.business){
+			console.log("USER COOKIE WAS CREATED!");
+			res.json(user);
+		}
+		else
+			return res.status(404).send();
+	});
 });
+
+
 
 app.post('/user-portal', function(req, res){
 	if(!session.user){
@@ -69,9 +89,17 @@ app.post('/business-portal', function(req, res){
 
 });
 
-app.post('/logout', function(req, res){
+app.post('/logoutUser', function(req, res){
 	session.user = null;
 	if(session.user !== null)
+		return res.status(500).send();
+
+	return res.status(200).send();
+});
+
+app.post('/logoutBusiness', function(req, res){
+	session.business = null;
+	if(session.business !== null)
 		return res.status(500).send();
 
 	return res.status(200).send();
@@ -101,9 +129,10 @@ app.post('/new-business', function(req, res){
 	var mobile = req.body.mobile;
 	var web = req.body.web;
 	var mail = req.body.mail;
+	var password = req.body.newPassword;
 	var emun = req.body.emun;
 
-	getset.insertBusiness(name, sector, contact, address, phone, mobile, web, mail, emun);
+	getset.insertBusiness(name, sector, contact, address, phone, mobile, web, mail, password, emun);
 
 	res.send(name + ' ' + sector + ' ' + contact + ' ' + address + ' ' + phone + ' ' + mobile + ' ' + web + ' ' + mail + ' ' + emun);
 });

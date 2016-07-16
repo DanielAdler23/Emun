@@ -115,29 +115,14 @@
 		
 		<section class="main-up"></section>
 
-		<section class="main-center" ng-controller="userPortal" data-ng-init="init()">
+		<section class="main-center" ng-controller="businessPortal" data-ng-init="init()">
 			<ul>
                 <li><span>/</span><a href="#">  מדריכי קנייה וטיפים</a></li>
                 <li><span>/</span><a href="#">  משאלים</a></li>
             </ul>
-            <h3>  מעקב אחר תלונה</h3>
-           	<table id="allComplaints">
-            	<tr> 
-					<th> מספר</th>
-					<th> מס תלונה</th>
-					<th> שם העסק</th>
-					<th> סטטוס</th>
-					<th> הודעה</th>
-            	</tr>
-
-            	<tr ng-repeat="item in complaints">
-					<td class="number"> {{$index+1}} </td>
-					<td class="id"> {{item.complaintID}} </td>
-					<td class="name"> {{item.businessName}}	</td>
-            		<td> </td>
-            		<td> </td>
-            	</tr>
-            </table>
+            <div id="allComplaints">
+            	<h1 ng-repeat="x in records">{{$index + 1}}{{x.businessName}}{{x.complaintID}}</h1>
+            </div>
 			
 
 		</section>
